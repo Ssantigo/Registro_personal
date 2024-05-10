@@ -7,7 +7,7 @@ def fnt_limpiar():
     print('Politecnico Jaime Isaza Cadavid\n')
     
 def fnt_agregar():
-    fnt_limpiar
+    fnt_limpiar()
     print('\n<<< REGISTRAR PERSONA >>>\n')
     id = input('ID: ')
     nombre = input('Nombre: ')
@@ -16,7 +16,15 @@ def fnt_agregar():
     correo = input('Correo: ')
     r = id + ' ' + nombre + ' ' +apellido + ' ' + contacto + ' ' + correo
     list_personal.append(r)
-    input('Persona registrada con exito, <ENTER> para continuar') 
+    input('\nPersona registrada con exito, <ENTER> para continuar')
+
+def fnt_mostrar():
+    fnt_limpiar()
+    print('\n<<< LISTA DE PERSONAS >>>\n')
+    for i in list_personal:
+        print(i)
+        print('\n')
+    input('\nFin del registro <ENTER> para continuar') 
     
 def fnt_menu(m):
     while m== True:
@@ -25,6 +33,11 @@ def fnt_menu(m):
             m = False  
         elif opcion == '1':
             fnt_agregar()
-                 
+        elif opcion == '2':
+            fnt_mostrar()
+        else:
+            print('\nOpcion no valida, <ENTER> para continuar')
+            input()
+            fnt_limpiar()            
 fnt_menu(True)
     
